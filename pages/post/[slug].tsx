@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Header from "../../components/Header";
 import { sanityClient, urlFor } from "../../sanity";
-import { Post } from "../../typings";
+import { Comment, Post } from "../../typings";
 import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useState } from "react";
@@ -170,7 +170,7 @@ function Post({ post }: Props) {
         <h3 className="text-4xl" >Comments</h3>
         <hr className="pb-2" />
 
-        {post.comments.map((comment) => (
+        {post.comments.map((comment:Comment) => (
           <div key={comment._id} >
             <p>
               <span className="text-yellow-500" >{comment.name} :</span> {comment.comment}
